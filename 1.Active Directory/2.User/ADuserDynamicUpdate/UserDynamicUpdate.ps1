@@ -5,6 +5,8 @@
     This script update AD user properties based on the input file.
     The input file should be in CSV format with first column as user SAMAccountName and the rest of the column are AD attributes.
     The script will also create a template input file if the input file is not found.
+    You can refer to refer https://learn.microsoft.com/en-us/powershell/module/activedirectory/set-aduser?view=windowsserver2022-ps for list of commonly used
+    property.
 .NOTES
     File Name      : UserDynamicUpdate.ps1
     Author         : fayerboll
