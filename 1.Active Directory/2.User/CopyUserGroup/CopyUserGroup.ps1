@@ -3,21 +3,22 @@
 To add target user into the same groups as source user.
 
 .DESCRIPTION
-To add target user into the same groups as source user. This is particularly useful if target user is a team member of source user to ensure consistency.
+To add target user into the same groups as source user.
+This is particularly useful if target user is a team member of source user to ensure consistency.
 It won't remove existing group that target user already a member of.
 Log is generated and stored in the same script folder.
 
 .PARAMETER SourceUser
 Source username you want to get the group list from.
 
-.PARAMETER ToUser
+.PARAMETER TargetUser
 Target username you want to add group into.
 
 .PARAMETER Ticket
 SR ticket for this request. This is mandatory for audit purposes.
 
 .EXAMPLE
-PS> .\CopyUserGroup.ps1 -SourceUser MrLobaLoba -ToUser MrBombastic -Ticket SR12345
+PS> .\CopyUserGroup.ps1 -SourceUser MrLobaLoba -TargetUser MrBombastic -Ticket SR12345
 It will copy 'MrLobaLoba' group(s) to 'MrBombastic'.
 
 .NOTES
@@ -30,7 +31,7 @@ param (
     [Parameter(Mandatory = $true)]
     [string]$SourceUser,
     [Parameter(Mandatory = $true)]
-    [string]$ToUser,
+    [string]$TargetUser,
     [Parameter(Mandatory = $true)]
     [string]$Ticket
 )
