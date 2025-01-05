@@ -1,0 +1,8 @@
+## This line will be ignored during import.,,,
+## To update AD user information you can add column name based on AD user properties.,,,
+## First column is identifier which in most scenario is user SAMAccountName.,,,
+## Second column and so on the column you want to update.,,,
+SAMAccountName,Description,EmailAddress,Company
+v2211,Contoh Desc pertama,ahmad@gmail.com,ABC
+T123456,contoh kedua plak,nisfu@yahoo.com,Contoso
+V3333,ni plak no 3,ikutla@apapa.net,Mycompany
