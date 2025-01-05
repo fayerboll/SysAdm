@@ -19,6 +19,11 @@ SR ticket for this request. This is mandatory for audit purposes.
 .EXAMPLE
 PS> .\CopyUserGroup.ps1 -SourceUser MrLobaLoba -ToUser MrBombastic -Ticket SR12345
 It will copy 'MrLobaLoba' group(s) to 'MrBombastic'.
+
+.NOTES
+File Name      : CopyUserGroup.ps1
+Author         : fayerboll
+Change History : 19/09/2023 - Initial version
 #>
 
 param (
@@ -42,10 +47,16 @@ function Test-ADUser {
     param (
         [string]$Username
     )
-    Get-ADUser -Filter { SamAccountName -eq $Username }
+    try {
+        Get-ADUser -Filter { SamAccountName -eq $Username }
+        return $true
+    }
+    catch {
+        return $false
+    }
 }
 
-if ($Null -eq (Test-ADUser -Username $SourceUser) -or $Null -eq (Test-ADUser -Username $ToUser)) {
+if (!(Test-ADUser -Username $SourceUser) -or !(Test-ADUser -Username $ToUser)) {
     Write-Warning "Invalid source user or target user. Exiting script."
     exit
 }
